@@ -1,13 +1,13 @@
 const asyncHandler = require("express-async-handler");
-const userModel = require("../model/user_data_model");
+const userModel = require("../model/all_users");
 
-// get ./api/users
+// get ./users
 exports.getData = asyncHandler(async (req, res) => {
   const user = await userModel.find();
   res.status(200).json(user);
 });
 
-// post ./api/users
+// post ./users
 exports.putData = asyncHandler(async (req, res) => {
   const user = await userModel.create({
     name: req.body.name,
@@ -17,7 +17,7 @@ exports.putData = asyncHandler(async (req, res) => {
   res.status(200).json(user);
 });
 
-// update ./api/users requires id parametter
+// update /users requires id parametter
 exports.updateData = asyncHandler(async (req, res) => {
   const updatedData = await userModel.findByIdAndUpdate(
     req.params.id,
@@ -27,7 +27,7 @@ exports.updateData = asyncHandler(async (req, res) => {
   res.status(200).json(updatedData);
 });
 
-// delete ./api/users requires id parameter
+// delete /users requires id parameter
 exports.deleteData = asyncHandler(async (req, res) => {
   const user = await userModel.findById(req.params.id);
   await user.remove();

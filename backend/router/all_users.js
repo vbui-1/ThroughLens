@@ -7,7 +7,7 @@ const {
   putData,
   updateData,
   deleteData,
-} = require("../controller/controller");
+} = require("../controller/all_users");
 
 //  crud operation
 router.get("/", getData);

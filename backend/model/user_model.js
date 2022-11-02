@@ -12,10 +12,9 @@ const schema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    date: {
-      type: Date,
+    password: {
+      type: String,
       required: true,
-      unique: true,
     },
   },
   {
@@ -23,5 +22,5 @@ const schema = mongoose.Schema(
   }
 );
 
-const appointment = mongoose.model("appointment", schema);
-module.exports = appointment;
+const user = mongoose.model("user", schema);
+module.exports = user;

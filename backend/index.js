@@ -7,17 +7,21 @@ dotenv.config({ path: ".env" });
 const PORT = process.env.PORT;
 
 // to connect mongoDB
-const mongoConnection = require("./database/connetion");
+const mongoConnection = require("./database/mongo_connection");
 mongoConnection();
 
 // built in middleware parser express json
 app.use(express.json());
 
 // to handle URLencoded data middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+
+// to view html pages from router
+app.use("/", require("./router/view_route"));
 
 // to access crud operations
-app.use("/api/users", require("./router/router"));
+app.use("/users", require("./router/all_users"));
+app.use("/", require("./router/user_route"));
 
 // to listen to port 3000 from the .env file
 app.listen(PORT, () => {
