@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", require("./router/view_route"));
 
 // to access crud operations
-app.use("/users", require("./router/all_users"));
+app.use("/all/users", require("./router/all_users"));
 app.use("/", require("./router/user_route"));
 
 // to listen to port 3000 from the .env file
