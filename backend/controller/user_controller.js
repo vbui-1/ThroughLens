@@ -5,21 +5,14 @@ const bcrypt = require("bcrypt");
 
 // post /signup
 exports.registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
-  //const salt = await bcrypt.
+  const { name, email } = req.body;
 
-  /*const hashedPassword = await bcrypt.hash(password, 10, (err, hash) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    //res hash;
-  });
-*/
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
   const user = userModel.create({
     name,
     email,
-    password,
+    password: hashedPassword,
   });
   user.save;
   res.redirect("/");
@@ -27,6 +20,16 @@ exports.registerUser = asyncHandler(async (req, res) => {
 
 // post /login
 exports.loginUser = asyncHandler(async (req, res) => {
+  const user = await userModel.findOne({ email, password });
+  res.json(user);
+  const match = await bcrypt.compare(req.body.password, userModel.password);
+  const accessToken = jwt.sign(JSON.stringify(email), process.env.SECRET_TOKEN);
+  if (match) {
+    res.json({ accessToken: accessToken });
+  } else {
+    res.json({ message: "Invalid Credential" });
+  }
+  /*
   const { email, password } = req.body;
   const user = userModel.findOne({ email, password });
   console.log("success " + user);
@@ -39,7 +42,9 @@ exports.loginUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Invalid credentials");
   }
+  */
 });
+
 // get /user
 exports.getUser = asyncHandler(async (req, res) => {
   res.json({ message: "Get User" });
