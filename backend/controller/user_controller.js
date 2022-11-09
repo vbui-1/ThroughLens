@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const userModel = require("../model/user_model");
-const jwt = require("jsonwebtoken");
+//const jwt = require("jsonwebtoken");
 
 // post /signup
 exports.registerUser = asyncHandler(async (req, res) => {
