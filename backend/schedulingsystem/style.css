@@ -1,0 +1,56 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/background\ \(1\).jpg);
+
+}
+
+.inner-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.form-data {
+    margin-top: 20%;
+    background-color: white;
+}
+
+.form-body {
+    padding: 20px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-head {
+    padding: 20px;
+    border-bottom: 1px solid #CCC;
+}
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    background-color: #f7f7ff;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 2px solid #3a58ee;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.datepicker td, .datepicker th {
+    padding: 8px;
+}
+
+.dropdown-menu.datepicker {
+    max-width: 300px !important;
+}
