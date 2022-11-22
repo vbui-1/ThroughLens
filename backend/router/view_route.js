@@ -15,10 +15,13 @@ router.get("/frontpage", (req, res) => {
   res.sendFile(path.join(__dirname, "../view/frontpage.html"));
 });
 router.get("/gallery", (req, res) => {
-  res.sendFile(path.join(__dirname, "../view/gallery.html"));
+  res.sendFile(path.join(__dirname, "../view/Ourgallery.html"));
 });
 router.get("/users", (req, res) => {
   res.sendFile(path.join(__dirname, "../view/all_users.html"));
+});
+router.get("/users", (req, res) => {
+  res.sendFile(path.join(__dirname, "../view/Our_Services.html"));
 });
 
 module.exports = router;
