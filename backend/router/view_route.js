@@ -20,5 +20,8 @@ router.get("/gallery", (req, res) => {
 router.get("/users", (req, res) => {
   res.sendFile(path.join(__dirname, "../view/all_users.html"));
 });
+router.get("/scheduling", (req, res) => {
+  res.sendFile(path.join(__dirname, "../view/scheduling.html"));
+});
 
 module.exports = router;
