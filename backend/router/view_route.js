@@ -15,7 +15,7 @@ router.get("/frontpage", (req, res) => {
   res.sendFile(path.join(__dirname, "../view/frontpage.html"));
 });
 router.get("/gallery", (req, res) => {
-  res.sendFile(path.join(__dirname, "../view/Ourgallery.html"));
+  res.sendFile(path.join(__dirname, "../view/OurGallery.html"));
 });
 router.get("/users", (req, res) => {
   res.sendFile(path.join(__dirname, "../view/all_users.html"));
