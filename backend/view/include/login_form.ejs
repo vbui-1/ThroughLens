@@ -1,0 +1,35 @@
+<form action="/login" method="POST">
+  <fieldset>
+    <legend class="text-center">Login</legend>
+
+    <p class="text-center">Use the form below to log in</p>
+
+    <div class="form-group">
+      <label for="email" class="form-label mt-4">Email address</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        id="email"
+        placeholder="example@email.com"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="form-label mt-4">Password</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        id="passwprd"
+        placeholder="Password"
+      />
+    </div>
+    <!--<input type="submit" value="Signup" />-->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+<p class="text-center">
+  Dont have an account?
+  <a class="nav-link" href="/signup">Signup </a>
+</p>
