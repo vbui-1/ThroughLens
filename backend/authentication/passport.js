@@ -7,21 +7,22 @@ const User = require("../model/user_model");
 module.exports = (passport) => {
   passport.use(
     new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-      // see if uuser email in database
+      // check to see if email is in database
       User.findOne({
         email: email,
       }).then((user) => {
         if (!user) {
-          return done(null, false, { message: "That email is not registered" });
+          return done(null, false, {message: "no such user"});
+          
         }
 
-        // see if password match with hashed password
-        bcrypt.compare(password, user.password, (err, isMatch) => {
-          if (err) throw err;
+        // check to see if password match with hashed password in databse
+        bcrypt.compare(password, user.password, (error, isMatch) => {
+          if (error) throw error;
           if (isMatch) {
             return done(null, user);
           } else {
-            return done(null, false, { message: "Password incorrect" });
+            return done(null, false, {message: "invalid password"});
           }
         });
       });
@@ -33,8 +34,8 @@ module.exports = (passport) => {
   });
 
   passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-      done(err, user);
+    User.findById(id, (error, user) => {
+      done(error, user);
     });
   });
 };

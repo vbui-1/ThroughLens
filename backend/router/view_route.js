@@ -1,25 +1,48 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
 const controller = require("../controller/view_controller");
 const auth = require("../authentication/authenticator");
 
-// signup page   route
+/*
+route to signup page
+public
+*/
 router.get("/signup", auth.forwardAuthenticated, controller.signup);
 
-// login page route
+/*
+route to login  page
+public
+*/
 router.get("/login", auth.forwardAuthenticated, controller.login);
 
-// index page route protected
+/*
+route to index page
+protected
+*/
 router.get("/index", auth.ensureAuthenticated, controller.index);
 
-// user info page  route protected
-router.get("/user/info", auth.ensureAuthenticated, controller.user_info);
+/*
+route to account page
+protected
+*/
+router.get("/account", auth.ensureAuthenticated, controller.account);
 
-// gallery page route  protected
+/*
+route to gallery page
+protected
+*/
 router.get("/gallery", auth.ensureAuthenticated, controller.gallery);
 
-// service page route  protected
+/*
+route to service page
+protected
+*/
 router.get("/service", auth.ensureAuthenticated, controller.service);
+
+/*
+route to service page
+protected
+*/
+router.get("/update", auth.ensureAuthenticated, controller.update);
 
 module.exports = router;

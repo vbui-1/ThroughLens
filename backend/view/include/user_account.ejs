@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Created</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-info">
+      <td><%= user.createdAt %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td> <a class="nav-link" href="/update">edit</a> </td>
+      <td> <a class="nav-link" href="/user/data/<%= user._id %>">delete</a> </td>
+    </tr>
+  </tbody>
+</table>

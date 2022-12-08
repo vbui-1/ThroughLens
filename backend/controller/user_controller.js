@@ -4,33 +4,66 @@ const bcrypt = require("bcrypt");
 const User = require("../model/user_model");
 const passport = require("passport");
 
-// post /create
+// post /create a new user
 exports.create = asyncHandler(async (req, res) => {
-  const { name, email } = req.body;
-
-  const hashedPassword = await bcrypt.hash(req.body.password, 10); //hash the password
-
-  //const user =
-  User.create({ name, email, password: hashedPassword });
-  // user.save;
-  res.redirect("/login");
+  const { name, email, password } = req.body;
+  // checks if all fields are filled
+  if (!name || !email || !password) {
+    req.flash("error_message", "Please make sure that all fields are filled");
+    res.redirect("/signup");
+  } else {
+    //checks if email already exist
+    User.findOne({ email: email }).then((user) => {
+      if (user) {
+        req.flash("error_message", "The email you entered already exist");
+        res.redirect("/signup");
+      } else {
+        // creates user with hashed password
+        const user = { name, email, password };
+        bcrypt.hash(user.password, 10, (error, hash) => {
+          User.create({ name, email, password: hash });
+          req.flash("success_message", "You are now registered, please log in");
+          res.redirect("/login");
+        });
+      }
+    });
+  }
 });
 
 // post /login
 exports.login = asyncHandler((req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/index",
-    failureRedirect: "/login",
+    successRedirect: "/account",
     failureFlash: true,
+    failureMessage: "try again",
+    failureRedirect: "/login",
+   
   })(req, res, next);
+});
+
+// Logout
+exports.logout = asyncHandler((req, res, next) => {
+  req.logout((error) => {
+    if (error) {
+      return next(error);
+    }
+    req.flash("success_message", "You have successfully logged out");
+    res.redirect("/login");
+  });
 });
 
 // put /update
 exports.update = asyncHandler(async (req, res) => {
-  const { token } = req.body;
-  const user = jwt.verify(token, secret);
-  console.log(user);
-  res.json({ status: "ok" });
+  if (!req.body) {
+    req.flash("error_message", "Make sure all fields are filled");
+  }
+  const id = req.params.id;
+  User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then((data) => {
+        res.send(data);
+        console.log(data)
+    })
+   
 });
 
 // get /read
@@ -38,50 +71,23 @@ exports.read = asyncHandler((req, res) => {
   if (req.query.id) {
     const id = req.query.id;
     User.findById(id)
-      .then((data) => {
-        if (!data) {
-          res.status(404).send({ message: "No user found with id " + id });
-        } else {
-          res.send(data);
-        }
+      .then((user) => {
+          res.send(user);
       })
-      .catch((err) => {
-        res
-          .status(500)
-          .send({ message: "Error retrieving user with id " + id });
-      });
-  } else {
+    } else {
     User.find()
       .then((user) => {
         res.send(user);
       })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Error Occurred while retriving user information",
-        });
-      });
   }
 });
 
 exports.delete = asyncHandler(async (req, res) => {
   const id = req.params.id;
-
   User.findByIdAndDelete(id)
-    .then((data) => {
-      if (!data) {
-        res
-          .status(404)
-          .send({ message: `Cannot Delete with id ${id}. Maybe id is wrong` });
-      } else {
-        res.send({
-          message: "User was deleted successfully!",
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Could not delete User with id=" + id,
-      });
-    });
+  .then((user) => {
+      req.flash("success_message", "Account deleted");
+      res.redirect("/signup")
+  })
+
 });

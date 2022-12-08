@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 // template for user data
 const UserSchema = mongoose.Schema(
   {
