@@ -19,7 +19,7 @@ router.get("/login", auth.forwardAuthenticated, controller.login);
 route to index page
 protected
 */
-router.get("/index", auth.ensureAuthenticated, controller.index);
+router.get("/", auth.ensureAuthenticated, controller.index);
 
 /*
 route to account page

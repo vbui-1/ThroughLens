@@ -5,6 +5,7 @@ const path = require("path");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const morgan = require("morgan")
 
 // ENV
 dotenv.config({ path: ".env" });
@@ -15,12 +16,14 @@ require("./authentication/passport")(passport);
 const mongoConnection = require("./database/mongo_connection");
 mongoConnection();
 
+app.use(express.json());
 // EJS ENGINE
 app.set("view engine", "ejs");
 
+app.use(morgan("dev"))
 // CSS
-app.use("/css", express.static(path.resolve(__dirname, "include/css")));
-
+//app.use("/css", express.static(path.resolve(__dirname, "include/css")));
+app.use(express.static("assets"))
 // Express session
 app.use(
   session({
@@ -31,7 +34,12 @@ app.use(
 );
 // Connect flash
 app.use(flash());
-
+app.use(function (req, res, next) {
+  res.locals.success_message = req.flash("success_message");
+  res.locals.error_message = req.flash("error_message");
+  res.locals.error = req.flash("error");
+  next();
+});
 // Passport middleware
 // MIDDLEWARE
 app.use(express.json());
@@ -39,19 +47,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Global flash messages
-app.use(function (req, res, next) {
-  res.locals.success_message = req.flash("success_message");
-  res.locals.error_message = req.flash("error_message");
-  //res.locals.error = req.flash("error");
-  next();
-});
+
 
 // ROUTES
 app.use("/", require("./router/view_route"));
-app.use("/", require("./router/user_route"));
+app.use("/user", require("./router/user_route"));
 
 // PORT
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}/index`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
