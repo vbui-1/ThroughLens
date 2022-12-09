@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // template for user data
-const schema = mongoose.Schema(
+const UserSchema = mongoose.Schema(
   {
     name: {
       type: String,
@@ -22,5 +22,5 @@ const schema = mongoose.Schema(
   }
 );
 
-const user = mongoose.model("user", schema);
-module.exports = user;
+const User = mongoose.model("User", UserSchema);
+module.exports = User;

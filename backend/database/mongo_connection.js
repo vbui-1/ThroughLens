@@ -1,9 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const mongoose = require("mongoose");
 
-// to wait for a connection with mongoDB
+// connection with mongoDB
 module.exports = asyncHandler(async () => {
-  const con = await mongoose.connect(process.env.MONGODB, {
+  const con = await mongoose.connect(process.env.MONGO_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
