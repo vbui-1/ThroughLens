@@ -21,8 +21,7 @@ app.use(express.json());
 app.set("view engine", "ejs");
 
 app.use(morgan("dev"))
-// CSS
-//app.use("/css", express.static(path.resolve(__dirname, "include/css")));
+
 app.use(express.static("assets"))
 // Express session
 app.use(
