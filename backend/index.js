@@ -51,7 +51,9 @@ app.use(function (req, res, next) {
 app.use("/", require("./router/view_route"));
 app.use("/", require("./router/user_route"));
 
+
 // PORT
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}/index`);
 });
+
