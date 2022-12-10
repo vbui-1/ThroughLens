@@ -1,9 +1,8 @@
 {
-<<<<<<< HEAD
+
   "name": "bootstrap-npm",
-=======
-  "name": "Throughlens",
->>>>>>> d4da6d7f11fc76a35194f5459f2a0985ee23ec5f
+
+
   "version": "1.0.0",
   "description": "Photoshoot booking",
   "main": "index.js",
