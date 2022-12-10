@@ -1,33 +1,62 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../model/user_model");
 const path = require("path");
 
-// signup page
+/*
+to view signup page
+public
+*/
 exports.signup = asyncHandler((req, res) => {
-  res.render(path.join(__dirname, "../view/signup.ejs"));
+  res.render("signup");
 });
 
-// login page
+/*
+to view login page
+public
+*/
 exports.login = asyncHandler((req, res) => {
-  res.render(path.join(__dirname, "../view/login.ejs"));
+  res.render("login");
 });
 
-// index page
+/*
+to view index page
+protected
+*/
 exports.index = asyncHandler((req, res) => {
-  res.render(path.join(__dirname, "../view/index.ejs"));
+  res.render("index");
 });
 
-// user/info page
-exports.user_info = asyncHandler((req, res) => {
-  res.render(path.join(__dirname, "../view/user_info.ejs"));
+/*
+to view account page
+protected
+*/
+exports.account = asyncHandler((req, res) => {
+  res.render("account", {
+    user: req.user,
+  });
 });
 
-// gallery page
+/*
+to view gallery page
+protected
+*/
 exports.gallery = asyncHandler((req, res) => {
-  res.render(path.join(__dirname, "../view/gallery.ejs"));
+  res.render("gallery");
 });
 
-// service page
+/*
+to view service page
+protected
+*/
 exports.service = asyncHandler((req, res) => {
-  res.render(path.join(__dirname, "../view/service.ejs"));
+  res.render("service");
+});
+
+/*
+to view update page
+protected
+*/
+exports.update = asyncHandler((req, res) => {
+  res.render("update", {
+    user: req.user,
+  });
 });

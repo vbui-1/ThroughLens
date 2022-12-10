@@ -1,7 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "bootstrap-npm",
+=======
+  "name": "Throughlens",
+>>>>>>> d4da6d7f11fc76a35194f5459f2a0985ee23ec5f
   "version": "1.0.0",
-  "description": "backend for website",
+  "description": "Photoshoot booking",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,6 +27,7 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.7",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"

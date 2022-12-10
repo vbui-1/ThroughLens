@@ -1,0 +1,25 @@
+<% if(locals.errors){ %> 
+  <% errors.forEach((error) => { %>
+  <div class="alert alert-warning text-center" role="alert">
+    <%= error.error_message %>
+  </div>
+  <% }); %> 
+  <% } %>
+
+<% if(success_message != ''){ %>
+<div class="alert alert-success text-center" role="alert">
+  <%= success_message %>
+</div>
+<% } %> 
+
+<% if(error_message != ''){ %>
+<div class="alert alert-danger text-center" role="alert">
+  <%= error_message %>
+</div>
+<% } %>
+
+<% if(error != ''){ %>
+<div class="alert alert-danger text-center" role="alert">
+  <%= error %>
+</div>
+<% } %>

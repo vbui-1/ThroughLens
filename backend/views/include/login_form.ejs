@@ -1,17 +1,9 @@
-<form action="/user/data" method="POST">
+<form action="/user/login" method="POST">
   <fieldset>
-    <legend class="text-center">Signup</legend>
-    <p class="text-center">Use the form below to sign up</p>
-    <div class="form-group">
-      <label for="name" class="form-label mt-4">Name</label>
-      <input
-        type="name"
-        name="name"
-        class="form-control"
-        id="name"
-        placeholder="John Doe"
-      />
-    </div>
+    <legend class="text-center">Login</legend>
+
+    <p class="text-center">Use the form below to log in</p>
+
     <div class="form-group">
       <label for="email" class="form-label mt-4">Email address</label>
       <input
@@ -22,6 +14,7 @@
         placeholder="example@email.com"
       />
     </div>
+
     <div class="form-group">
       <label for="password" class="form-label mt-4">Password</label>
       <input
@@ -37,6 +30,6 @@
   </fieldset>
 </form>
 <p class="text-center">
-  Already have an account?
-  <a class="nav-link" href="/login">Login </a>
+  Dont have an account?
+  <a class="nav-link" href="/signup">Signup </a>
 </p>
