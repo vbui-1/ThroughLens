@@ -1,87 +1,136 @@
 const asyncHandler = require("express-async-handler");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../model/user_model");
 const passport = require("passport");
 
-// post /create
+// post /create a new user
 exports.create = asyncHandler(async (req, res) => {
-  const { name, email } = req.body;
+  const { name, email, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(req.body.password, 10); //hash the password
+  // checks if all fields are filled
+  if (!name || !email || !password) {
+    req.flash("error_message", "Please make sure that all fields are filled");
+    res.redirect("/signup");
+  } else {
 
-  //const user =
-  User.create({ name, email, password: hashedPassword });
-  // user.save;
-  res.redirect("/login");
+    //checks if email already exist
+    User.findOne({ email: email }).then((user) => {
+      if (user) {
+        req.flash("error_message", "The email you entered already exist");
+        res.redirect("/signup");
+      } else {
+
+        // creates user with hashed password
+        const user = { name, email, password };
+        bcrypt.hash(user.password, 10, (error, hash) => {
+          User.create({ name, email, password: hash });
+          req.flash("success_message", "You are now registered, please log in");
+          res.redirect("/login");
+        });
+      }
+    });
+  }
 });
 
 // post /login
 exports.login = asyncHandler((req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/index",
+    successRedirect: "/",
+    failureFlash: true, 
     failureRedirect: "/login",
-    failureFlash: true,
   })(req, res, next);
 });
 
-// put /update
-exports.update = asyncHandler(async (req, res) => {
-  const { token } = req.body;
-  const user = jwt.verify(token, secret);
-  console.log(user);
-  res.json({ status: "ok" });
-});
-
-// get /read
-exports.read = asyncHandler((req, res) => {
-  if (req.query.id) {
-    const id = req.query.id;
-    User.findById(id)
-      .then((data) => {
-        if (!data) {
-          res.status(404).send({ message: "No user found with id " + id });
-        } else {
-          res.send(data);
-        }
-      })
-      .catch((err) => {
-        res
-          .status(500)
-          .send({ message: "Error retrieving user with id " + id });
-      });
-  } else {
-    User.find()
-      .then((user) => {
-        res.send(user);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Error Occurred while retriving user information",
-        });
-      });
-  }
+// Logout
+exports.logout = asyncHandler((req, res, next) => {
+  req.logout((error) => {
+    if (error) {
+      return next(error);
+    }
+    req.flash("success_message", "You have successfully logged out");
+    res.redirect("/login");
+  });
 });
 
 exports.delete = asyncHandler(async (req, res) => {
   const id = req.params.id;
-
+  console.log(req.params.id)
+  
   User.findByIdAndDelete(id)
-    .then((data) => {
-      if (!data) {
-        res
-          .status(404)
-          .send({ message: `Cannot Delete with id ${id}. Maybe id is wrong` });
-      } else {
-        res.send({
-          message: "User was deleted successfully!",
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Could not delete User with id=" + id,
-      });
-    });
+  .then((user) => {
+      req.flash("success_message", "Account deleted");
+      res.redirect("/signup")
+  })
+
 });
+
+// put /update
+exports.update = asyncHandler(async (req, res) => {
+   const id = req.params.id;
+  const { name, email, password } = req.body;
+  console.log(req.params.id)
+  console.log(req.body)
+  req.body.password = await bcrypt.hash(req.body.password, 10);
+  if (!name || !email || !password) {
+    req.flash("error_message", "Please make sure that all fields are filled");
+    res.redirect("/update", {
+      user: req.body,
+    });
+  } else  {
+    //checks if email already exist
+    User.findOne({ email: email }).then((user) => {
+      if (user) {
+        req.flash("error_message", "That email is taken already already");
+        res.redirect("/update", {
+          user: req.body,
+        });
+      } else {
+
+       
+
+   User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+          req.flash("success_message", "You have successfully update your account, please log in");
+          res.redirect("/login", {
+            user: req.body,
+          });
+      
+      }
+    });
+ // hashed password
+ 
+  }
+ /*
+  .then((data) => {
+    if (!data) {
+      res
+        .status(404)
+        .send({
+          message: `Cannot Update user with ${id}. Maybe user not found!`,
+        });
+      console.log("Cannot Update user with ${id}. Maybe user not found!");
+    } else {
+      //res.send(data);
+      //console.log("send data");
+    }
+  })
+  .catch((err) => {
+    res.status(500).send({ message: "Error Update user information" });
+  });
+
+ */
+  
+});
+
+// get /read
+exports.read = asyncHandler((req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    User.findById(id)
+      .then((user) => {
+          res.render("account", {
+            user
+          })
+      })
+});
+
+
