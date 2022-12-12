@@ -1,369 +1,222 @@
-<!--include header navigational bars-->
 
+<!--include header navigational bars-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Welcome to the page" />
-    <title>ThroughLens</title>
-
-    <style>
-      h1 {
-        text-align: center;
-      }
-
-      a {
-        color: rgb(184, 156, 3);
-      }
-      font {
-        font-size: 18px;
-      }
-      .normal-text {
-        font-size: 18px;
-      }
-    </style>
-
+    
+<head>
     <%- include("include/nav_bar") %>
-  </head>
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container px-4 px-lg-5"></div>
-    <a class="navbar-brand" href="#page-top">ThroughLens</a>
-    <button
-      class="navbar-toggler navbar-toggler-right"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarResponsive"
-      aria-controls="navbarResponsive"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive"></div>
-    <ul class="navbar-nav ms-auto my-2 my-lg-1">
-      <li class="nav-link"><a class="nav-link" href="#services">About</a></li>
-      <li class="nav-link">
-        <a class="nav-link" href="#services">Services</a>
-      </li>
-      <li class="nav-link">
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-      </li>
-      <li class="nav-link"><a class="nav-link" href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  
-  <body>
-    <br /><br /><br />
-    <a
-      class="fw-bolder"
-      class="h1"
-      href="https://www.instagram.com/diallovisuals/"
-      >ThroughLens</a
-    >
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" media="screen" />
+    <link rel="stylesheet"href="../css/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet"href="../css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+</head>
 
-    <section>
-      <p>
-        I will appreciate as many details about your particular wedding venue,
-        dates, theme and other aspects, as you’d be willing to share. I will be
-        giving you my feedback immediately!
-      </p>
-
-      <div class="cell-sm-10 cell-md-6 wow fadeInLeft">
-        <article class="box-line">
-          <span></span><span></span><span></span><span></span>
-          <div class="box-line__main">
-            <!-- Mailform-->
-            <form class="rd-mailform" method="post" action="includes/alldb.php">
-              <div class="form-email">
-                <label class="form-email" for="contact-email"
-                  >E-mail Address</label
-                >
-                <input
-                  class="form-input"
-                  id="contact-email"
-                  type="email"
-                  name="email"
-                  data-constraints="@Email @Required"
-                />
+    <header>
+        <div id="parallax" class="header-content d-flex align-items-center bg-image">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-xl-5 col-lg-6">
+                <div class="header-content-right">
+                  <h4 class="sub-title text-white">Hi, we are</h4>
+                  <h1 class="title text-white">ThroughLens!</h1>
+                  <b>A Photographer @Towson University</b>
+                  <a class="main-btn" href="#services">View my Work!</a>
+                </div>
+                <!-- header content right -->
               </div>
-
-              <div class="form-date">
-                <label class="form-date" for="Date">Date</label>
-                <input
-                  class="form-date"
-                  id="contact-date"
-                  type="Date"
-                  name="Date"
-                  data-constraints="@Date @Required"
-                />
-              </div>
-
-              <div class="form-message">
-                <label class="form-label" for="contact-message"
-                  >Your Message
-                </label>
-                <textarea
-                  class="form-message"
-                  id="contact-message"
-                  name="message"
-                  data-constraints="@Required"
-                ></textarea>
-              </div>
-
-              <div class="form-submit-book-me form-button offset-1">
-                <!--<img class ="opacity-75 bg-secondary" style="background-image" src="assets/img/2.png" alt="image" length="100" width="200" >  -->
-
-                <!-- <div class="bg-image" style="background-image: url('https://assets/img/2.png'); height=100vh;"></div> -->
-
-                <!--Redirect to backend services -->
-              </div>
-            </form>
+            </div>
+            <!-- row -->
           </div>
-        </article>
-      </div>
-    </section>
-    <!-- Portfolio-->
-    <div id="portfolio">
-      <div class="container-fluid p-0">
-        <div class="row g-0">
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="../img/3.png" title="Graduation">
-              <img
-                class="img-fluid"
-                src="../img/3.png"
-                alt="..."
-                length="1000"
-                width="1080"
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Category</div>
-                <div class="project-name">Graduation</div>
+          <!-- container -->
+          <div class="header-social">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="header-social-icon">
+                    <ul>
+                      <li>
+                        <a href="https://www.instagram.com/diallovisuals/"><i class="fa fa-instagram"></i></a>
+                      </li>
+                      <li>
+                        <a href="https://www.instagram.com/diallovisuals/"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="assets/img/4.png" title="Events">
-              <img
-                class="img-fluid"
-                src="assets/img/4.png"
-                alt="..."
-                length="1000"
-                width="1080"
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Category</div>
-                <div class="project-name">Events</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="assets/img/1.png" title="Portraits">
-              <img
-                class="img-fluid"
-                src="assets/img/1.png"
-                alt="..."
-                length="1000"
-                width="1080"
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Category</div>
-                <div class="project-name">Portraits</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="assets/img/5.png" title="Automotive">
-              <img
-                class="img-fluid"
-                src="assets/img/5.png"
-                alt="..."
-                length="1000"
-                width="1080"
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Category</div>
-                <div class="project-name">Automotive</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="assets/img/6.png" title="Birthdays">
-              <img
-                class="img-fluid"
-                src="assets/img/6.png"
-                alt="..."
-                length="1000"
-                width="1080"
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Category</div>
-                <div class="project-name">Birthdays</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              href="assets/img/7.png"
-              title="Random Shoots"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/7.png"
-                alt="..."
-                length="1000"
-                width="1080"
-              />
-              <div class="portfolio-box-caption p-3">
-                <div class="project-category text-white-50">Category</div>
-                <div class="project-name">Random Shoots</div>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
-      </div>
+    </header>
+                <!--====== HEADER PART ENDS ======-->
+      
+                <!--====== ABOUT ME PART START ======-->
+    <div id="about" class="about-area pt-125 pb-130">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="section-title text-center">
+                <h2 class="title">About Me</h2>
+                <b>
+                  "Preserving moments that YOU value."
+                </b>
+              </div>
+              <!-- section title -->
+            </div>
+          </div>
+          <!-- row -->
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="about-content mt-50">
+                <h5 class="about-title">Hi There! We are ThroughLens</h5>
+                <p>
+                  A professional photographer that removes limitations on creativity by offering his experience,
+                  skills, and personality to a customer's vision in comfortable settings
+                  by capturing raw emotions, personalities, and expressions.
+                </p>
+                <ul class="clearfix">
+                  <li>
+                    <div class="single-info d-flex align-items-center">
+                      <div class="info-icon">
+                        <i class="lni-calendar"></i>
+                      </div>
+                      <div class="info-text">
+                        <p><span>Full Name: </span> ThroughLens Inc.</p>
+                      </div>
+                    </div>
+                    <!-- single info -->
+                  </li>
+                  <li>
+                    <div class="single-info d-flex align-items-center">
+                      <div class="info-icon">
+                        <i class="lni-envelope"></i>
+                      </div>
+                      <div class="info-text">
+                        <p><span>Email:</span> helpdesk@ThroughLens.com</p>
+                      </div>
+                    </div>
+                    <!-- single info -->
+                  </li>
+                  <li>
+                    <div class="single-info d-flex align-items-center">
+                      <div class="info-icon">
+                        <i class="lni-phone-handset"></i>
+                      </div>
+                      <div class="info-text">
+                        <p><span>Phone:</span> +1-800-563-7537</p>
+                      </div>
+                    </div>
+                    <!-- single info -->
+                  </li>
+                  <li>
+                    <div class="single-info d-flex align-items-center">
+                      <div class="info-icon">
+                        <i class="lni-map-marker"></i>
+                      </div>
+                      <div class="info-text">
+                        <p><span>Location:</span> @Towson University </p>
+                      </div>
+                    </div>
+                    <!-- single info -->
+                  </li>
+                </ul>
+              </div>
+              <!-- about content -->
+            </div>
+            <div class="col-xl-5 offset-xl-1 col-lg-6">
+              <div class="about-skills pt-25">
+                <div class="skill-item mt-25">
+                  <div class="skill-header">
+                    <h6 class="skill-title">Luminar 4</h6>
+                    <div class="skill-percentage">
+                      <div class="count-box counted">
+                        <span class="counter">90</span>
+                      </div>
+                      %
+                    </div>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="bar-inner">
+                      <div class="bar progress-line" data-width="90"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- skill item -->
+                <div class="skill-item mt-25">
+                  <div class="skill-header">
+                    <h6 class="skill-title">Photoshop</h6>
+                    <div class="skill-percentage">
+                      <div class="count-box counted">
+                        <span class="counter">90</span>
+                      </div>
+                      %
+                    </div>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="bar-inner">
+                      <div class="bar progress-line" data-width="90"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- skill item -->
+                <div class="skill-item mt-25">
+                  <div class="skill-header">
+                    <h6 class="skill-title">Adobe Premier</h6>
+                    <div class="skill-percentage">
+                      <div class="count-box counted">
+                        <span class="counter">80</span>
+                      </div>
+                      %
+                    </div>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="bar-inner">
+                      <div class="bar progress-line" data-width="80"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- skill item -->
+                <div class="skill-item mt-25">
+                  <div class="skill-header">
+                    <h6 class="skill-title">Lightroom</h6>
+                    <div class="skill-percentage">
+                      <div class="count-box counted">
+                        <span class="counter">95</span>
+                      </div>
+                      %
+                    </div>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="bar-inner">
+                      <div class="bar progress-line" data-width="95"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
+                    <!--ABOUT ME ENDS-->
 
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-      <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-lg-8 col-xl-6 text-center">
-            <h2 class="mt-0">Lets Get In Touch!</h2>
-
-            <p class="text-muted mb-5">
-              Send us a messages and we will get back to you as soon as
-              possible! :)
-            </p>
+                    <!--LOGO FOOTER-->
+    <footer id="footer" class="footer-area">
+        <div class="footer-widget pt-130 pb-130">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="footer-content text-center">
+                  <a href="../img/logo.png"> <img src="../img/logo.png" alt="Logo" /></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-          <div class="col-lg-6">
-            <!-- * * SB Forms Contact Form * *-->
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- This form is pre-integrated with SB Forms.-->
-            <!-- To make this form functional, sign up at-->
-            <!-- https://startbootstrap.com/solution/contact-forms-->
-            <!-- to get an API token!-->
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-              <!-- Name input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="name"
-                  type="text"
-                  placeholder="Enter your name..."
-                  data-sb-validations="required"
-                />
-                <label for="name">Full name</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">
-                  A name is required.
-                </div>
-              </div>
-
-              <!-- Email address input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="email"
-                  type="email"
-                  placeholder="name@example.com"
-                  data-sb-validations="required,email"
-                />
-                <label for="email">Email address</label>
-                <div class="invalid-feedback" data-sb-feedback="email:required">
-                  An email is required.
-                </div>
-                <div class="invalid-feedback" data-sb-feedback="email:email">
-                  Email is not valid.
-                </div>
-              </div>
-
-              <!-- Phone number input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="phone"
-                  type="tel"
-                  placeholder="(123) 456-7890"
-                  data-sb-validations="required"
-                />
-                <label for="phone">Phone number</label>
-                <div class="invalid-feedback" data-sb-feedback="phone:required">
-                  A phone number is required.
-                </div>
-              </div>
-
-              <!-- Message input-->
-              <div class="form-floating mb-3">
-                <textarea
-                  class="form-control"
-                  id="message"
-                  type="text"
-                  placeholder="Enter your message here..."
-                  style="height: 10rem"
-                  data-sb-validations="required"
-                ></textarea>
-                <label for="message">Message</label>
-                <div
-                  class="invalid-feedback"
-                  data-sb-feedback="message:required"
-                >
-                  A message is required.
-                </div>
-              </div>
-
-              <!-- Submit success message-->
-
-              <!-- This is what your users will see when the form-->
-              <!-- has successfully submitted-->
-              <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                </div>
-              </div>
-
-              <!-- Submit error message-->
-
-              <!-- This is what your users will see when there is an error submitting the form-->
-              <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">
-                  Error sending message!
-                </div>
-              </div>
-              <!-- Submit Button-->
-              <div class="d-grid">
-                <button
-                  class="btn btn-primary btn-xl"
-                  id="submitButton"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-lg-4 text-center mb-5 mb-lg-0">
-            <i class="bi-phone fs-2 mb-3 text-muted"></i>
-            <div>+1 (000) 000-0000</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer-->
-    <footer>
-      class="bg-light py-5">
-      <div class="container px-4 px-lg-5">
-        <div class="small text-center text-muted">
-          Copyright &copy; 2023 - ThroughLens
-        </div>
-      </div>
     </footer>
-  </body>
+                        <!--LOGO FOOTER-->
+            <footer>
+                <div class="text-center p-3" style="background-color: #cfb53b"> <span>© 2023 Copyright: ThroughLens Inc. All rights reserved</span></div>
+            </footer>
+                        <!--LOGO FOOTER ENDS-->
 </html>

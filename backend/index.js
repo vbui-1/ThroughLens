@@ -23,6 +23,8 @@ app.set("view engine", "ejs");
 app.use(morgan("dev"))
 
 app.use(express.static("assets"))
+
+app.use(express.static(__dirname + '/public'))
 // Express session
 app.use(
   session({
@@ -52,7 +54,9 @@ app.use(passport.session());
 app.use("/", require("./router/view_route"));
 app.use("/user", require("./router/user_route"));
 
+
 // PORT
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
