@@ -12,14 +12,12 @@ exports.create = asyncHandler(async (req, res) => {
     req.flash("error_message", "Please make sure that all fields are filled");
     res.redirect("/signup");
   } else {
-
     //checks if email already exist
     User.findOne({ email: email }).then((user) => {
       if (user) {
         req.flash("error_message", "The email you entered already exist");
         res.redirect("/signup");
       } else {
-
         // creates user with hashed password
         const user = { name, email, password };
         bcrypt.hash(user.password, 10, (error, hash) => {
@@ -36,7 +34,7 @@ exports.create = asyncHandler(async (req, res) => {
 exports.login = asyncHandler((req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/",
-    failureFlash: true, 
+    failureFlash: true,
     failureRedirect: "/login",
   })(req, res, next);
 });
@@ -54,29 +52,27 @@ exports.logout = asyncHandler((req, res, next) => {
 
 exports.delete = asyncHandler(async (req, res) => {
   const id = req.params.id;
-  console.log(req.params.id)
-  
-  User.findByIdAndDelete(id)
-  .then((user) => {
-      req.flash("success_message", "Account deleted");
-      res.redirect("/signup")
-  })
+  console.log(req.params.id);
 
+  User.findByIdAndDelete(id).then((user) => {
+    req.flash("success_message", "Account deleted");
+    res.redirect("/signup");
+  });
 });
 
 // put /update
 exports.update = asyncHandler(async (req, res) => {
-   const id = req.params.id;
+  const id = req.params.id;
   const { name, email, password } = req.body;
-  console.log(req.params.id)
-  console.log(req.body)
+  console.log(req.params.id);
+  console.log(req.body);
   req.body.password = await bcrypt.hash(req.body.password, 10);
   if (!name || !email || !password) {
     req.flash("error_message", "Please make sure that all fields are filled");
     res.redirect("/update", {
       user: req.body,
     });
-  } else  {
+  } else {
     //checks if email already exist
     User.findOne({ email: email }).then((user) => {
       if (user) {
@@ -85,21 +81,19 @@ exports.update = asyncHandler(async (req, res) => {
           user: req.body,
         });
       } else {
-
-       
-
-   User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
-          req.flash("success_message", "You have successfully update your account, please log in");
-          res.redirect("/login", {
-            user: req.body,
-          });
-      
+        User.findByIdAndUpdate(id, req.body, { useFindAndModify: false });
+        req.flash(
+          "success_message",
+          "You have successfully update your account, please log in"
+        );
+        res.redirect("/login", {
+          user: req.body,
+        });
       }
     });
- // hashed password
- 
+    // hashed password
   }
- /*
+  /*
   .then((data) => {
     if (!data) {
       res
@@ -118,19 +112,15 @@ exports.update = asyncHandler(async (req, res) => {
   });
 
  */
-  
 });
 
 // get /read
 exports.read = asyncHandler((req, res) => {
-    const id = req.params.id;
-    console.log(id)
-    User.findById(id)
-      .then((user) => {
-          res.render("account", {
-            user
-          })
-      })
+  const id = req.params.id;
+  console.log(id);
+  User.findById(id).then((user) => {
+    res.render("account", {
+      user,
+    });
+  });
 });
-
-

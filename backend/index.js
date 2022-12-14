@@ -5,7 +5,7 @@ const path = require("path");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
-const morgan = require("morgan")
+const morgan = require("morgan");
 
 // ENV
 dotenv.config({ path: ".env" });
@@ -20,9 +20,9 @@ app.use(express.json());
 // EJS ENGINE
 app.set("view engine", "ejs");
 
-app.use(morgan("dev"))
+app.use(morgan("dev"));
 
-app.use(express.static("assets"))
+app.use(express.static("assets"));
 
 //app.use(express.static(__dirname + '/public'))
 
@@ -49,15 +49,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 // ROUTES
 app.use("/", require("./router/view_route"));
 app.use("/user", require("./router/user_route"));
-
 
 // PORT
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-

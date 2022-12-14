@@ -12,7 +12,7 @@ module.exports = (passport) => {
         email: email,
       }).then((user) => {
         if (!user) {
-          return done(null, false, {message: "Invalid email address"});
+          return done(null, false, { message: "Invalid email address" });
         }
 
         // check to see if password match with hashed password in databse
@@ -21,7 +21,7 @@ module.exports = (passport) => {
           if (isMatch) {
             return done(null, user);
           } else {
-            return done(null, false, {message: "Invalid password"});
+            return done(null, false, { message: "Invalid password" });
           }
         });
       });

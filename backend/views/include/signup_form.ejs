@@ -1,13 +1,13 @@
 <form action="/user/signup" method="POST">
-  <fieldset>
-    <legend class="text-center">Signup</legend>
-    <p class="text-center">Use the form below to sign up</p>
+  <fieldset class="text-center container" style="background-color: #cfb53b">
+    <h1>Signup</h1>
+    <p>Use the form below to signup</p>
     <div class="form-group">
       <label for="name" class="form-label mt-4">Name</label>
       <input
         type="name"
         name="name"
-        class="form-control"
+        class="form-control text-center"
         id="name"
         placeholder="John Doe"
       />
@@ -17,7 +17,7 @@
       <input
         type="email"
         name="email"
-        class="form-control"
+        class="form-control text-center"
         id="email"
         placeholder="Example@email.com"
       />
@@ -27,16 +27,21 @@
       <input
         type="password"
         name="password"
-        class="form-control"
+        class="form-control text-center"
         id="password"
         placeholder="Password"
       />
     </div>
     <!--<input type="submit" value="Signup" />-->
+    <br />
+    <br />
     <button type="submit" class="btn btn-primary">Submit</button>
   </fieldset>
 </form>
-<p class="text-center">
+<br />
+<br />
+<br />
+<p class="text-center container" style="background-color: gold">
   Already have an account?
-  <a class="nav-link" href="/login">Login </a>
+  <a class="btn btn-primary" href="/login">Login </a>
 </p>
