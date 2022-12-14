@@ -24,7 +24,8 @@ app.use(morgan("dev"))
 
 app.use(express.static("assets"))
 
-app.use(express.static(__dirname + '/public'))
+//app.use(express.static(__dirname + '/public'))
+
 // Express session
 app.use(
   session({
