@@ -55,4 +55,16 @@ protected
 */
 router.get("/schedule", auth.ensureAuthenticated, controller.schedule);
 
+/*
+route to payment page
+protected
+*/
+router.get("/payment", auth.ensureAuthenticated, controller.payment);
+
+/*
+route to review_order page
+protected
+*/
+router.get("/review_order", auth.ensureAuthenticated, controller.review_order);
+
 module.exports = router;
