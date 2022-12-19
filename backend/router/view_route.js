@@ -4,7 +4,6 @@ const router = express.Router();
 const path = require("path");
 // get html file to browser
 
-
 const controller = require("../controller/view_controller");
 const auth = require("../authentication/authenticator");
 
@@ -44,12 +43,10 @@ protected
 */
 router.get("/service", auth.ensureAuthenticated, controller.service);
 
-
 /*
 route to service page
 protected
 */
 router.get("/update", auth.ensureAuthenticated, controller.update);
-
 
 module.exports = router;
