@@ -76,3 +76,11 @@ protected
 exports.payment = asyncHandler((req, res) => {
   res.render("payment");
 });
+
+/*
+to view review_order page
+protected
+*/
+exports.review_order = asyncHandler((req, res) => {
+  res.render("review_order");
+});
