@@ -67,4 +67,10 @@ protected
 */
 router.get("/review_order", auth.ensureAuthenticated, controller.review_order);
 
+/*
+route to confirmation page
+protected
+*/
+router.get("/confirmation", auth.ensureAuthenticated, controller.confirmation);
+
 module.exports = router;

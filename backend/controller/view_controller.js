@@ -84,3 +84,11 @@ protected
 exports.review_order = asyncHandler((req, res) => {
   res.render("review_order");
 });
+
+/*
+to view confirmation page
+protected
+*/
+exports.confirmation = asyncHandler((req, res) => {
+  res.render("confirmation");
+});

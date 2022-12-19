@@ -3,8 +3,8 @@
     <head>
         <meta name="viewpoint" context="with=device-width, initial-scale=1.0">
         <title>ThroughLens </title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet"href="../css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet"href="../css/scheduleStyle.css" type="text/css" />
             <!--===== Boxicons CSS =====-->
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
             <!--===== Datepicker =====-->
@@ -17,35 +17,10 @@
 
     </head>
     <body>
-        <section class="header">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Throughlens</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="navbar-collapse collapse show" id="navbarColor02" style="">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                          </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Service</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-        </section>
+  
+  <section>
+      <%- include("include/nav_bar") %>
+  </section>
 
 
               <div class="inner-layer">
@@ -60,7 +35,7 @@
                         <div class="col-sm-8">
                             <div class="form-data">
                                 <div class="form-head">
-                                    <img src="../assets/img/checkmark-flat.png">
+                                    <img src="payment gateway/images/checkmark-flat.png">
                                 </div>
                                 
                                     <div class="index-input">
