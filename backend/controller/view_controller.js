@@ -68,3 +68,11 @@ protected
 exports.schedule = asyncHandler((req, res) => {
   res.render("schedule");
 });
+
+/*
+to view payment page
+protected
+*/
+exports.payment = asyncHandler((req, res) => {
+  res.render("payment");
+});
