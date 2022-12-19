@@ -14,7 +14,9 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../css/AVServices.css"/>
 
-
+    app.get('schedule.ejs',(req, res) => {
+      res.render('schedule');
+    });
     <section>
       <div class="row">
         <h2 class="section-heading">ThroughLens Photography Services</h2>
@@ -126,8 +128,5 @@
 		<div class="text-center p-3" style="background-color: #cfb53b"> <span>© 2023 Copyright: ThroughLens Inc. All rights reserved</span></div>
 	</footer>
 
-  app.get('schedule.ejs',(req, res) => {
-    res.render('schedule');
-  });
   </body>
 </html>
