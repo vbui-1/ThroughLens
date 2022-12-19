@@ -44,9 +44,15 @@ protected
 router.get("/service", auth.ensureAuthenticated, controller.service);
 
 /*
-route to service page
+route to update page
 protected
 */
 router.get("/update", auth.ensureAuthenticated, controller.update);
+
+/*
+route to schedule page
+protected
+*/
+router.get("/schedule", auth.ensureAuthenticated, controller.schedule);
 
 module.exports = router;

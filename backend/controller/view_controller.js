@@ -60,3 +60,11 @@ exports.update = asyncHandler((req, res) => {
     user: req.user,
   });
 });
+
+/*
+to view schedule page
+protected
+*/
+exports.schedule = asyncHandler((req, res) => {
+  res.render("schedule");
+});
