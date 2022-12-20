@@ -57,3 +57,4 @@ app.use("/user", require("./router/user_route"));
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
